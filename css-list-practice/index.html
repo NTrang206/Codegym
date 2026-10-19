@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thực Hành: Định Kiểu Danh Sách trong CSS</title>
+  <!-- 1. Liên kết file CSS với HTML -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>[Thực hành] Định Kiểu Danh Sách trong CSS</h1>
+    <p>Khám phá các thuộc tính list-style-type, list-style-image, list-style-position và cách phối hợp màu sắc</p>
+  </header>
+
+  <main class="grid-container">
+
+    <!-- Mục 2: Thay đổi kiểu đánh dấu danh sách không thứ tự (square) -->
+    <div class="card">
+      <h2>2. Kiểu đánh dấu vuông (square)</h2>
+      <p class="desc">Sử dụng <code>list-style-type: square;</code> cho danh sách môn học:</p>
+      <ul class="list-square">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Git</li>
+      </ul>
+    </div>
+
+    <!-- Mục 3: Thay đổi kiểu đánh dấu danh sách có thứ tự (upper-roman) -->
+    <div class="card">
+      <h2>3. Số La Mã viết hoa (upper-roman)</h2>
+      <p class="desc">Sử dụng <code>list-style-type: upper-roman;</code> cho các bước học:</p>
+      <ol class="list-roman">
+        <li>Học HTML</li>
+        <li>Học CSS</li>
+        <li>Học JavaScript</li>
+        <li>Học Git</li>
+      </ol>
+    </div>
+
+    <!-- Mục 4: Sử dụng hình ảnh làm dấu đánh dấu (list-style-image) -->
+    <div class="card">
+      <h2>4. Hình ảnh làm dấu (list-style-image)</h2>
+      <p class="desc">Sử dụng <code>list-style-image: url('images/check-icon.png');</code> cho danh sách công cụ:</p>
+      <ul class="list-image">
+        <li>Visual Studio Code</li>
+        <li>Google Chrome</li>
+        <li>GitHub</li>
+        <li>Git</li>
+      </ul>
+    </div>
+
+    <!-- Mục 5: Thay đổi vị trí dấu đánh dấu (outside vs inside) -->
+    <div class="card">
+      <h2>5. So sánh vị trí (outside vs inside)</h2>
+      <p class="desc">Dấu ở ngoài lề (Mặc định): <code>list-style-position: outside;</code></p>
+      <ul class="list-pos-outside">
+        <li>Mục thứ nhất nằm ngoài lề biên giới hạn</li>
+        <li>Mục thứ hai minh họa vị trí outside</li>
+      </ul>
+
+      <p class="desc" style="margin-top: 15px;">Dấu ở trong lề nội dung: <code>list-style-position: inside;</code></p>
+      <ul class="list-pos-inside">
+        <li>Mục thứ nhất nằm trọn vẹn bên trong lề biên</li>
+        <li>Mục thứ hai minh họa vị trí inside</li>
+      </ul>
+    </div>
+
+    <!-- Mục 6: Sử dụng thuộc tính rút gọn list-style -->
+    <div class="card">
+      <h2>6. Thuộc tính rút gọn (list-style)</h2>
+      <p class="desc">Thiết lập đồng thời Type và Position: <code>list-style: square inside;</code></p>
+      <ul class="list-shorthand">
+        <li>Mục rút gọn 1 (Hình vuông + Vị trí inside)</li>
+        <li>Mục rút gọn 2 (Cú pháp ngắn gọn, dễ bảo trì)</li>
+        <li>Mục rút gọn 3 (Chuẩn W3C CSS)</li>
+      </ul>
+    </div>
+
+    <!-- Mục 7: Tạo kiểu danh sách với màu sắc & khoảng cách -->
+    <div class="card">
+      <h2>7. Danh sách với màu sắc & khoảng cách</h2>
+      <p class="desc">Kết hợp <code>background-color</code>, <code>color</code>, <code>padding</code> và <code>margin</code>:</p>
+      <ul class="list-colored">
+        <li>HTML (HyperText Markup Language)</li>
+        <li>CSS (Cascading Style Sheets)</li>
+        <li>JavaScript (Ngôn ngữ lập trình Web)</li>
+        <li>Python (Ngôn ngữ lập trình đa năng)</li>
+      </ul>
+    </div>
+
+    <!-- Mục 8: Bài tập tổng hợp (Lộ trình học lập trình Web) -->
+    <div class="card card-featured">
+      <h2>8. Bài tập tổng hợp: Lộ trình học lập trình Web</h2>
+      <p class="desc">Áp dụng kết hợp list-style, màu nền thanh lịch, màu chữ, padding và margin:</p>
+      <ul class="list-roadmap">
+        <li><strong>Chặng 1:</strong> HTML - Xây dựng cấu trúc và nền tảng trang web</li>
+        <li><strong>Chặng 2:</strong> CSS - Thiết kế giao diện, màu sắc, bố cục Flexbox & Grid</li>
+        <li><strong>Chặng 3:</strong> JavaScript - Lập trình tư duy logic và tính năng tương tác</li>
+        <li><strong>Chặng 4:</strong> Git - Quản lý phiên bản mã nguồn chuyên nghiệp</li>
+        <li><strong>Chặng 5:</strong> GitHub - Lưu trữ dự án trên đám mây và làm việc nhóm</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Bài thực hành CSS Lists - Khoá học Lập trình Web Frontend CodeGym</p>
+  </footer>
+
+</body>
+</html>

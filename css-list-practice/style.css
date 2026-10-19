@@ -1,0 +1,253 @@
+/* ==========================================================================
+   BÀI THỰC HÀNH: ĐỊNH KIỂU CHO DANH SÁCH BẰNG CSS (CSS LISTS)
+   Tập hợp đầy đủ các thuộc tính:
+   - list-style-type (square, upper-roman)
+   - list-style-image (icon hình ảnh)
+   - list-style-position (outside, inside)
+   - list-style (thuộc tính rút gọn)
+   - background-color, color, padding, margin (màu sắc & khoảng cách)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. THIẾT LẬP CHUNG VÀ BỐ CỤC TRANG
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.6;
+  padding: 30px 20px;
+}
+
+.page-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 35px auto;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  color: #0f172a;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.page-header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* Lưới hiển thị các thẻ bài tập */
+.grid-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.card h2 {
+  font-size: 18px;
+  color: #0284c7;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e0f2fe;
+  padding-bottom: 6px;
+}
+
+.card .desc {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 15px;
+}
+
+.card .desc code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #0369a1;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+}
+
+/* --------------------------------------------------------------------------
+   2. THAY ĐỔI KIỂU ĐÁNH DẤU DANH SÁCH (list-style-type: square)
+   -------------------------------------------------------------------------- */
+.list-square {
+  list-style-type: square;       /* Dấu vuông */
+  padding-left: 25px;
+  color: #334155;
+  font-size: 15px;
+}
+
+.list-square li {
+  margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   3. DANH SÁCH CÓ THỨ TỰ SỐ LA MÃ (list-style-type: upper-roman)
+   -------------------------------------------------------------------------- */
+.list-roman {
+  list-style-type: upper-roman;  /* Số La Mã viết hoa: I, II, III, IV */
+  padding-left: 25px;
+  color: #334155;
+  font-size: 15px;
+}
+
+.list-roman li {
+  margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   4. SỬ DỤNG HÌNH ẢNH LÀM DẤU ĐÁNH DẤU (list-style-image)
+   -------------------------------------------------------------------------- */
+.list-image {
+  list-style-image: url('images/check-icon.png'); /* Đường dẫn đến hình ảnh icon */
+  padding-left: 25px;
+  color: #334155;
+  font-size: 15px;
+}
+
+.list-image li {
+  margin-bottom: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   5. THAY ĐỔI VỊ TRÍ DẤU ĐÁNH DẤU (list-style-position: outside vs inside)
+   -------------------------------------------------------------------------- */
+/* Dấu đánh dấu nằm ngoài lề biên (Mặc định) */
+.list-pos-outside {
+  list-style-position: outside;  /* Dấu nằm bên ngoài khối nội dung */
+  list-style-type: disc;
+  border: 1.5px dashed #94a3b8;
+  background-color: #f8fafc;
+  padding: 12px 12px 12px 35px;
+  border-radius: 6px;
+  color: #334155;
+  font-size: 14px;
+}
+
+.list-pos-outside li {
+  margin-bottom: 6px;
+}
+
+/* Dấu đánh dấu nằm trong lề nội dung */
+.list-pos-inside {
+  list-style-position: inside;   /* Dấu nằm trọn vẹn bên trong khối nội dung */
+  list-style-type: disc;
+  border: 1.5px dashed #0284c7;
+  background-color: #f0f9ff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  color: #0369a1;
+  font-size: 14px;
+}
+
+.list-pos-inside li {
+  margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   6. SỬ DỤNG THUỘC TÍNH RÚT GỌN (list-style)
+   -------------------------------------------------------------------------- */
+.list-shorthand {
+  /* Kết hợp Type: square và Position: inside trong 1 khai báo */
+  list-style: square inside;
+  padding: 14px 18px;
+  background-color: #fdf4ff;
+  border: 1px solid #f0abfc;
+  border-radius: 8px;
+  color: #86198f;
+  font-size: 15px;
+}
+
+.list-shorthand li {
+  margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   7. TẠO KIỂU DANH SÁCH VỚI MÀU SẮC VÀ KHOẢNG CÁCH
+   -------------------------------------------------------------------------- */
+.list-colored {
+  background-color: #e0f2fe;    /* Màu nền cho toàn bộ danh sách */
+  padding: 18px;                /* Khoảng cách bên trong danh sách */
+  border-radius: 10px;
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
+.list-colored li {
+  background-color: #ffffff;    /* Màu nền cho từng mục */
+  color: #0284c7;               /* Màu chữ cho từng mục */
+  margin-bottom: 8px;           /* Khoảng cách giữa các mục */
+  padding: 10px 14px;           /* Khoảng cách bên trong từng mục */
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.list-colored li:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. BÀI TẬP TỔNG HỢP: LỘ TRÌNH HỌC LẬP TRÌNH WEB
+   -------------------------------------------------------------------------- */
+.card-featured {
+  grid-column: 1 / -1;          /* Trải rộng toàn bộ chiều ngang */
+  border: 1.5px solid #0284c7;
+}
+
+.list-roadmap {
+  /* Thuộc tính rút gọn list-style */
+  list-style: square inside;
+  background-color: #0f172a;    /* Màu nền danh sách (tối sang trọng) */
+  color: #f8fafc;               /* Màu chữ sáng */
+  padding: 24px;                /* Padding bên trong danh sách */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+}
+
+.list-roadmap li {
+  background-color: #1e293b;    /* Màu nền từng chặng */
+  margin-bottom: 10px;          /* Khoảng cách margin giữa các mục */
+  padding: 12px 18px;           /* Khoảng cách padding bên trong mục */
+  border-left: 4px solid #38bdf8; /* Vạch màu điểm nhấn */
+  border-radius: 6px;
+  font-size: 15px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.list-roadmap li:hover {
+  transform: translateX(6px);   /* Hiệu ứng trượt nhẹ khi di chuột */
+  background-color: #334155;
+}
+
+.list-roadmap li strong {
+  color: #38bdf8;               /* Màu nhấn cho tiêu đề chặng */
+}
+
+.list-roadmap li:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer trang */
+.page-footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #94a3b8;
+  font-size: 14px;
+}
