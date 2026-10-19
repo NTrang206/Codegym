@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Thanh điều hướng chính (Navbar) -->
+  <nav class="navbar">
+    <div class="logo">MyWebsite</div>
+    <ul class="nav-links">
+      <li><a href="#">Trang chủ</a></li>
+      <li><a href="#">Giới thiệu</a></li>
+      <li><a href="#">Dịch vụ</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
+    <div class="menu-icon">☰</div>
+  </nav>
+
+  <!-- Khu vực nội dung minh họa -->
+  <main class="content-container">
+    <section class="hero-section">
+      <h1>[Thực hành] Tạo Thanh Điều Hướng Responsive</h1>
+      <p>
+        Thanh điều hướng linh hoạt sử dụng kết hợp HTML, CSS (Flexbox, Media Queries) và JavaScript.
+      </p>
+      <div class="instructions-box">
+        <h3>Cách kiểm tra:</h3>
+        <ul>
+          <li><strong>Trên màn hình Desktop (&gt; 768px):</strong> Menu hiển thị dạng thanh ngang đầy đủ, biểu tượng ☰ được ẩn đi.</li>
+          <li><strong>Trên màn hình Mobile (&le; 768px):</strong> Menu được ẩn đi và xuất hiện biểu tượng ☰. Khi nhấp vào ☰, menu sẽ trượt mở ra hoặc đóng lại bằng JavaScript class <code>active</code>.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

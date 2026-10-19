@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Cá Nhân</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Responsive</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Chào mừng đến với trang web cá nhân của tôi</h1>
-    </header>
-    <section class="profile">
-        <img src="avatar.jpg" alt="Ảnh đại diện" class="avatar">
-        <p>Xin chào! Tôi là <strong>Nguyễn Thị Trang</strong>, một lập trình viên yêu thích công nghệ.</p>
-    </section>
-    <section class="hobbies">
-        <h2>Sở thích</h2>
-        <ul>
-            <li>Đọc sách</li>
-            <li>Chơi thể thao</li>
-            <li>Lập trình</li>
-            <li>Du lịch</li>
-        </ul>
-    </section>
-    <section class="goals">
-        <h2>Mục tiêu học tập</h2>
-        <p>Tôi muốn trở thành một lập trình viên chuyên nghiệp, xây dựng các sản phẩm hữu ích.</p>
-    </section>
-    <footer>
-        <h2>Thông tin liên hệ</h2>
-        <table border="1">
-            <tr>
-                <th>Email</th>
-                <td>ngtrangtn0703@gmail.com</td>
-            </tr>
-            <tr>
-                <th>Facebook</th>
-                <td><a href="https://github.com/NTrang206" target="_blank">github.com/NTrang206</a></td>
-            </tr>
-        </table>
-    </footer>
+
+  <header class="header">
+    <div class="logo">MyBrand</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Dịch vụ</a></li>
+        <li><a href="#">Đánh giá</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Chào mừng đến với MyBrand</h1>
+    <p>Giải pháp số 1 cho doanh nghiệp của bạn</p>
+    <a href="#services" class="btn">Tìm hiểu thêm</a>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Dịch vụ của chúng tôi</h2>
+    <div class="service-container">
+      <div class="service">Thiết kế web</div>
+      <div class="service">Phát triển phần mềm</div>
+      <div class="service">Marketing số</div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Khách hàng nói gì?</h2>
+    <div class="testimonial">"Dịch vụ tuyệt vời!" - Khách hàng A</div>
+    <div class="testimonial">"Tôi rất hài lòng với MyBrand." - Khách hàng B</div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 MyBrand. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>

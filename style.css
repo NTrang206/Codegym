@@ -1,74 +1,154 @@
-/* Định dạng chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Định dạng tiêu đề */
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    font-size: 24px;
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 20px;
+  color: white;
 }
 
-/* Định dạng ảnh đại diện */
-.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #4CAF50;
-    margin: 20px;
-    object-fit: cover;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-/* Định dạng các section */
-section {
-    margin: 20px auto;
-    max-width: 800px;
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
 }
 
-/* Định dạng danh sách */
-ul {
-    list-style-type: square;
-    text-align: left;
-    display: inline-block;
-    margin-top: 10px;
+.nav ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
 }
 
-/* Định dạng bảng */
-table {
-    margin: auto;
-    border-collapse: collapse;
-    width: 50%;
+.nav ul li a:hover {
+  color: #4CAF50;
 }
 
-th, td {
-    border: 1px solid black;
-    padding: 10px;
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #f4f4f4;
 }
 
-th {
-    background-color: #4CAF50;
-    color: white;
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
 }
 
-/* Định dạng footer */
-footer {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #ddd;
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #555;
 }
 
-footer a {
-    color: #333;
-    text-decoration: none;
+.hero .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-footer a:hover {
-    text-decoration: underline;
+.hero .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Services Section */
+.services {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.services h2 {
+  margin-bottom: 30px;
+}
+
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.service {
+  flex: 1;
+  min-width: 250px;
+  background-color: lightblue;
+  padding: 30px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Testimonials Section */
+.testimonials {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ddd;
+}
+
+.testimonials h2 {
+  margin-bottom: 25px;
+}
+
+.testimonial {
+  margin: 15px auto;
+  max-width: 600px;
+  font-style: italic;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 6px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+/* Media Queries cho Mobile (Điểm ngắt max-width: 768px) */
+@media (max-width: 768px) {
+  .nav ul {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .service-container {
+    flex-direction: column;
+  }
+
+  .service {
+    width: 100%;
+  }
+
+  .services,
+  .testimonials {
+    padding: 40px 20px;
+  }
 }

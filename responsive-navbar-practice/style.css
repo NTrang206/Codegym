@@ -1,0 +1,155 @@
+/* Reset và thiết lập kích thước chuẩn */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f5f9;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* Định dạng thanh điều hướng navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333333;
+  padding: 15px 20px;
+  color: white;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Danh sách menu trên Desktop */
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #f59e0b;
+}
+
+/* Biểu tượng hamburger menu mặc định ẩn trên Desktop */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+  color: #f59e0b;
+}
+
+/* ✅ Hiển thị menu khi có class active (được toggle qua JavaScript) */
+.nav-links.active {
+  display: flex;
+}
+
+/* ✅ Responsive cho Mobile (Màn hình từ 768px trở xuống) */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;                /* Mặc định ẩn trên mobile */
+    flex-direction: column;       /* Xếp các mục menu theo chiều dọc */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333333;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+  }
+
+  .nav-links li {
+    padding: 14px 0;
+    margin: 0;
+    border-bottom: 1px solid #444444;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  /* Khi class active được thêm vào thì hiển thị danh sách */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Hiện icon hamburger trên mobile */
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* Định dạng khu vực nội dung minh họa */
+.content-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.hero-section {
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.hero-section h1 {
+  font-size: 24px;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.hero-section p {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.instructions-box {
+  background-color: #f8fafc;
+  border-left: 4px solid #f59e0b;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  text-align: left;
+}
+
+.instructions-box h3 {
+  font-size: 16px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.instructions-box ul {
+  padding-left: 20px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.8;
+}
