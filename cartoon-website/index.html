@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KidCartoon - Trang Web Xem Phim Hoạt Hình Trực Tuyến An Toàn Cho Trẻ Em</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ==================== HEADER (CỐ ĐỊNH TRÊN CÙNG) ==================== -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+      <!-- 1. Logo bên trái -->
+      <div class="logo-box">
+        <a href="#" class="logo">
+          <span class="logo-icon">🎬</span>
+          <span class="logo-text">Kid<span class="highlight">Cartoon</span></span>
+        </a>
+      </div>
+
+      <!-- 2. Thanh tìm kiếm và bộ lọc sắp xếp -->
+      <div class="search-sort-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Tìm kiếm phim hoạt hình..." aria-label="Tìm kiếm phim">
+          <button type="button" id="searchBtn" title="Tìm kiếm">🔍</button>
+        </div>
+        <div class="sort-box">
+          <select id="sortSelect" title="Sắp xếp phim">
+            <option value="newest">Mới cập nhật</option>
+            <option value="views">Nhiều lượt xem nhất</option>
+            <option value="rating">Được yêu thích nhất</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 3. Head-link (Các liên kết trang điều hướng) -->
+      <nav class="head-link">
+        <ul>
+          <li><a href="#" class="active">Trang chủ</a></li>
+          <li><a href="#the-loai">Thể loại</a></li>
+          <li><a href="#moi-cap-nhat">Mới nhất</a></li>
+          <li><a href="#pho-bien">Phổ biến</a></li>
+          <li><a href="#thuyet-minh">Thuyết minh</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== KHU VỰC THÔNG BÁO TIÊU CHÍ AN TOÀN ==================== -->
+  <div class="safety-banner">
+    <div class="safety-content">
+      <span class="badge-safe">🛡️ 100% An Toàn Cho Bé</span>
+      <span>Nội dung chọn lọc &bull; Thuyết minh tiếng Việt &bull; Chất lượng Full HD 1080p &bull; Hoàn toàn không quảng cáo</span>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT (BỐ CỤC 2 CỘT: TRÁI & PHẢI) ==================== -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      
+      <!-- CỘT TRÁI (LEFT CONTENT): MENU DANH SÁCH VIDEO CÓ SẴN -->
+      <aside class="left-content" id="leftContent">
+        <div class="sidebar-header">
+          <h3>Danh Sách Phim Tuyển Chọn</h3>
+          <span class="video-count" id="videoCount">5 phim</span>
+        </div>
+
+        <div class="video-list" id="videoPlaylist">
+          <!-- Item 1 (Mặc định được chọn) -->
+          <div class="video-item active" data-id="1" data-type="youtube" data-src="https://www.youtube.com/embed/jfKfPfyJRdk" data-title="Doraemon: Bí Mật Mê Cung Dưới Lòng Đất (HD Thuyết Minh)" data-views="1.250.000" data-time="24:15" data-desc="Tập phim đặc biệt về chú mèo máy Doraemon và nhóm bạn Nobita cùng khám phá vùng đất bí ẩn dưới lòng đất. Phim thuyết minh tiếng Việt chuẩn, hình ảnh sắc nét chuẩn 1080p, phù hợp cho lứa tuổi thiếu nhi.">
+            <div class="thumb-wrapper">
+              <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=300&q=80" alt="Doraemon Thumbnail">
+              <span class="duration">24:15</span>
+              <span class="quality-tag">1080p</span>
+            </div>
+            <div class="item-info">
+              <h4>Doraemon: Bí Mật Mê Cung Dưới Lòng Đất</h4>
+              <p class="channel">Doraemon Official (Thuyết minh)</p>
+              <p class="meta">👁️ 1.25M lượt xem &bull; 2 ngày trước</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="video-item" data-id="2" data-type="video" data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" data-title="Chú Thỏ Dũng Cảm - Big Buck Bunny (Bản Gốc HTML5 Video)" data-views="3.820.000" data-time="09:56" data-desc="Bộ phim hoạt hình 3D vui nhộn về chú thỏ khổng lồ bảo vệ những người bạn rừng xanh bé nhỏ khỏi nhóm bắt nạt tinh nghịch. Phim được phát trực tiếp qua thẻ video HTML5 tốc độ cao không giật lag.">
+            <div class="thumb-wrapper">
+              <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=300&q=80" alt="Big Buck Bunny Thumbnail">
+              <span class="duration">09:56</span>
+              <span class="quality-tag">HTML5 Video</span>
+            </div>
+            <div class="item-info">
+              <h4>Chú Thỏ Dũng Cảm - Cuộc Chiến Rừng Xanh</h4>
+              <p class="channel">Blender Animation Studio</p>
+              <p class="meta">👁️ 3.82M lượt xem &bull; 1 tuần trước</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="video-item" data-id="3" data-type="youtube" data-src="https://www.youtube.com/embed/aqz-KE-bpKQ" data-title="Tom & Jerry: Mèo Chuột Đại Chiến Bữa Tiệc Phô Mai (FullHD)" data-views="5.400.000" data-time="18:30" data-desc="Những pha rượt đuổi hài hước bất tận giữa chú mèo Tom ngốc nghếch và chú chuột Jerry thông minh lém lỉnh. Cung cấp tiếng cười sảng khoái và phát triển tư duy sáng tạo cho các bé.">
+            <div class="thumb-wrapper">
+              <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=300&q=80" alt="Tom and Jerry Thumbnail">
+              <span class="duration">18:30</span>
+              <span class="quality-tag">1080p</span>
+            </div>
+            <div class="item-info">
+              <h4>Tom & Jerry: Mèo Chuột Đại Chiến Bữa Tiệc</h4>
+              <p class="channel">Warner Bros Animation</p>
+              <p class="meta">👁️ 5.40M lượt xem &bull; 3 tuần trước</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="video-item" data-id="4" data-type="youtube" data-src="https://www.youtube.com/embed/M7lc1UVf-VE" data-title="Chuyến Phiêu Lưu Của Chú Gấu Pooh và Khu Rừng Trăm Mẫu" data-views="980.000" data-time="22:10" data-desc="Câu chuyện ấm áp giàu tính nhân văn về tình bạn diệu kỳ của chú gấu Pooh, chú heo Piglet và hổ Tigger trong khu rừng xinh đẹp. Giáo dục lòng tốt và sự sẻ chia.">
+            <div class="thumb-wrapper">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&q=80" alt="Winnie Pooh Thumbnail">
+              <span class="duration">22:10</span>
+              <span class="quality-tag">720p HD</span>
+            </div>
+            <div class="item-info">
+              <h4>Chuyến Phiêu Lưu Của Chú Gấu Pooh Thân Thiện</h4>
+              <p class="channel">Disney Thiếu Nhi VN</p>
+              <p class="meta">👁️ 980K lượt xem &bull; 1 tháng trước</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="video-item" data-id="5" data-type="video" data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" data-title="Giấc Mơ Kỳ Thú Của Robot Nhỏ (HTML5 Video HD)" data-views="840.000" data-time="11:00" data-desc="Phim hoạt hình đồ họa viễn tưởng sống động kích thích trí tưởng tượng và sự tò mò khám phá khoa học kỹ thuật cho thiếu nhi. Phát qua trình phát video HTML5 nội bộ.">
+            <div class="thumb-wrapper">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&q=80" alt="Elephant Dream Thumbnail">
+              <span class="duration">11:00</span>
+              <span class="quality-tag">HTML5 Video</span>
+            </div>
+            <div class="item-info">
+              <h4>Giấc Mơ Kỳ Thú Của Robot Khám Phá</h4>
+              <p class="channel">Open Animation Project</p>
+              <p class="meta">👁️ 840K lượt xem &bull; 2 tháng trước</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CỘT PHẢI (RIGHT CONTENT): KHU VỰC PHÁT VIDEO CHÍNH -->
+      <section class="right-content" id="rightContent">
+        <!-- Khung phát video đa chế độ: Hỗ trợ cả <iframe> YouTube và thẻ <video> -->
+        <div class="player-wrapper">
+          <!-- Chế độ 1: Nhúng YouTube bằng thẻ <iframe> -->
+          <div class="embed-player-box" id="youtubePlayerBox">
+            <iframe 
+              id="mainIframe" 
+              src="https://www.youtube.com/embed/jfKfPfyJRdk" 
+              title="YouTube Cartoon Video Player" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Chế độ 2: Trình phát thẻ <video> HTML5 trực tiếp -->
+          <div class="html5-player-box" id="html5PlayerBox" style="display: none;">
+            <video id="mainVideoTag" controls preload="metadata" poster="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&q=80">
+              <source id="videoSource" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+              Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+            </video>
+          </div>
+        </div>
+
+        <!-- Thanh điều khiển chuyển đổi nguồn phát (YouTube <iframe> vs HTML5 <video>) -->
+        <div class="player-source-selector">
+          <span class="selector-label">Đang phát:</span>
+          <button type="button" class="source-btn active" id="btnSourceYouTube">🎬 YouTube Stream (FullHD Thuyết Minh)</button>
+          <button type="button" class="source-btn" id="btnSourceHtml5">⚡ Thẻ &lt;video&gt; Trực Tiếp (Không Quảng Cáo)</button>
+        </div>
+
+        <!-- Thông tin chi tiết về bộ phim đang chiếu -->
+        <div class="video-details-card">
+          <div class="details-top">
+            <div>
+              <h2 id="currentVideoTitle">Doraemon: Bí Mật Mê Cung Dưới Lòng Đất (HD Thuyết Minh)</h2>
+              <div class="video-badges">
+                <span class="badge-tag">FullHD 1080p</span>
+                <span class="badge-tag">Thuyết Minh Tiếng Việt</span>
+                <span class="badge-tag">Không Quảng Cáo</span>
+                <span class="badge-tag">Tuổi: 3+</span>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn-like" id="likeBtn">❤️ Thích (<span id="likeCount">15.4K</span>)</button>
+              <button class="btn-share" id="shareBtn">🔗 Chia sẻ</button>
+            </div>
+          </div>
+
+          <div class="video-meta-bar">
+            <span id="currentViews">👁️ 1.250.000 lượt xem</span> &bull; 
+            <span id="currentTime">Thời lượng: 24:15</span> &bull; 
+            <span class="status-clean">✔️ Kiểm duyệt bởi KidCartoon</span>
+          </div>
+
+          <div class="video-description">
+            <h3>Mô tả nội dung phim:</h3>
+            <p id="currentDesc">
+              Tập phim đặc biệt về chú mèo máy Doraemon và nhóm bạn Nobita cùng khám phá vùng đất bí ẩn dưới lòng đất. 
+              Phim thuyết minh tiếng Việt chuẩn, hình ảnh sắc nét chuẩn 1080p, phù hợp cho lứa tuổi thiếu nhi, 
+              đảm bảo môi trường mạng lành mạnh, an toàn và phát triển trí tưởng tượng phong phú cho các bé.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER (CHÂN TRANG BẢN QUYỀN) ==================== -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>🎬 KidCartoon Online</h4>
+        <p>Nền tảng xem phim hoạt hình trực tuyến an toàn hàng đầu dành cho trẻ em Việt Nam. 100% video được kiểm duyệt nội dung kỹ lưỡng, chất lượng cao từ HD đến FullHD.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Liên Kết Nhanh</h4>
+        <ul class="footer-links">
+          <li><a href="#">Chính sách nội dung an toàn cho bé</a></li>
+          <li><a href="#">Điều khoản sử dụng dịch vụ</a></li>
+          <li><a href="#">Hướng dẫn phụ huynh giám sát</a></li>
+          <li><a href="#">Báo cáo video không phù hợp</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tiêu Chuẩn Kỹ Thuật</h4>
+        <p>✔️ Tương thích hoàn hảo thẻ <code>&lt;video&gt;</code> &amp; <code>&lt;iframe&gt;</code></p>
+        <p>✔️ Bố cục đáp ứng (Responsive) PC, Tablet &amp; Mobile</p>
+        <p>✔️ Tốc độ truyền tải siêu tốc, không quảng cáo</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>KidCartoon</strong>. Bảo lưu mọi quyền. Được thiết kế cho bài tập thực hành Web Frontend CodeGym.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

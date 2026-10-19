@@ -1,0 +1,631 @@
+/* ==========================================================================
+   KIDCARTON - BÀI TẬP PHÁT TRIỂN TRANG WEB XEM HOẠT HÌNH TRỰC TUYẾN
+   CodeGym Web Development
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RESET & THIẾT LẬP CƠ BẢN
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #0f172a; /* Nền tối hiện đại chuẩn nền tảng video */
+  color: #f1f5f9;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   2. YÊU CẦU MỨC TRUNG BÌNH: ĐỊNH KIỂU LIÊN KẾT (A TAGS)
+   - Loại bỏ gạch chân trong liên kết.
+   - Khi rê chuột vào liên kết: Bôi đậm (font-weight: bold) và đổi màu chữ.
+   -------------------------------------------------------------------------- */
+a {
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  color: #cbd5e1;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  font-weight: bold;     /* Bôi đậm khi rê chuột */
+  color: #f59e0b;        /* Đổi màu chữ sang cam vàng nổi bật */
+}
+
+/* --------------------------------------------------------------------------
+   3. YÊU CẦU MỨC TRUNG BÌNH: HEADER CỐ ĐỊNH (FIXED / STICKY HEADER)
+   - Khi cuộn xuống, header giữ vị trí cố định trên cùng trang.
+   -------------------------------------------------------------------------- */
+.main-header {
+  position: sticky;      /* Header cố định trên cùng khi cuộn trang */
+  top: 0;
+  z-index: 1000;         /* Đảm bảo luôn nổi trên các phần tử khác */
+  background: rgba(15, 23, 42, 0.95); /* Màu nền bán trong suốt */
+  backdrop-filter: blur(12px);         /* Hiệu ứng kính mờ (Glassmorphism) */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Logo bên trái */
+.logo-box .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.logo-box .logo .logo-icon {
+  font-size: 1.7rem;
+}
+
+.logo-box .logo .highlight {
+  color: #f59e0b; /* Màu cam vàng sinh động cho trẻ em */
+}
+
+/* Thanh tìm kiếm & bộ lọc */
+.search-sort-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  max-width: 520px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 9999px;
+  padding: 4px 8px 4px 16px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.search-box button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+.sort-box select {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Head-link (Các liên kết trang) */
+.head-link ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.head-link a {
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.head-link a.active {
+  color: #f59e0b;
+  font-weight: 700;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   4. SAFETY BANNER (Thông báo an toàn cho bé)
+   -------------------------------------------------------------------------- */
+.safety-banner {
+  background: linear-gradient(90deg, #0284c7 0%, #0369a1 100%);
+  padding: 8px 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.safety-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge-safe {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   5. BỐ CỤC CHÍNH (CONTENT: LEFT & RIGHT)
+   -------------------------------------------------------------------------- */
+.main-content {
+  flex: 1;
+  padding: 24px 20px;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 380px 1fr; /* PC: Cột trái 380px, Cột phải chiếm phần còn lại */
+  gap: 24px;
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   6. CỘT TRÁI (LEFT CONTENT): MENU DANH SÁCH VIDEO CÓ SẴN
+   -------------------------------------------------------------------------- */
+.left-content {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.sidebar-header h3 {
+  font-size: 1.05rem;
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.video-count {
+  background-color: #334155;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 720px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Tùy chỉnh thanh cuộn cho danh sách */
+.video-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.video-list::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 4px;
+}
+
+/* Từng thẻ video trong danh sách */
+.video-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #0f172a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.video-item:hover {
+  background-color: #273549;
+  transform: translateX(4px);
+  border-color: #f59e0b;
+}
+
+.video-item.active {
+  border-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.thumb-wrapper {
+  position: relative;
+  width: 120px;
+  min-width: 120px;
+  height: 75px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.thumb-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb-wrapper .duration {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 0.7rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.thumb-wrapper .quality-tag {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #f59e0b;
+  color: #000000;
+  font-size: 0.65rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 800;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.item-info h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.item-info .channel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.item-info .meta {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   7. CỘT PHẢI (RIGHT CONTENT): KHU VỰC PHÁT VIDEO CHÍNH
+   -------------------------------------------------------------------------- */
+.right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Khung phát video tỉ lệ 16:9 chuẩn mực */
+.player-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  background-color: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #334155;
+}
+
+/* Thẻ <iframe> nhúng YouTube */
+.embed-player-box iframe,
+.html5-player-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Trình phát HTML5 <video> */
+.html5-player-box video {
+  object-fit: contain;
+}
+
+/* Thanh chuyển đổi nguồn phát (YouTube <iframe> vs HTML5 <video>) */
+.player-source-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1e293b;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  flex-wrap: wrap;
+}
+
+.selector-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.source-btn {
+  background-color: #0f172a;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.source-btn:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.source-btn.active {
+  background-color: #f59e0b;
+  color: #0f172a;
+  border-color: #f59e0b;
+  font-weight: 700;
+}
+
+/* Thẻ thông tin chi tiết phim đang chiếu */
+.video-details-card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 20px 24px;
+  border: 1px solid #334155;
+}
+
+.details-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.details-top h2 {
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.video-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-tag {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.action-buttons button {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.action-buttons button:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.video-meta-bar {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #334155;
+}
+
+.video-meta-bar .status-clean {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.video-description h3 {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.video-description p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   8. FOOTER: CHÂN TRANG BẢN QUYỀN
+   -------------------------------------------------------------------------- */
+.main-footer {
+  background-color: #0b1120;
+  border-top: 1px solid #1e293b;
+  margin-top: 40px;
+  padding: 40px 20px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.footer-col h4 {
+  font-size: 1.05rem;
+  color: #f8fafc;
+  margin-bottom: 14px;
+}
+
+.footer-col p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   9. YÊU CẦU NÂNG CAO: THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
+   -------------------------------------------------------------------------- */
+
+/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    grid-template-columns: 320px 1fr;
+    gap: 16px;
+  }
+}
+
+/* Mobile & Small Tablet (Màn hình dưới 768px) */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .logo-box {
+    text-align: center;
+  }
+
+  .search-sort-bar {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .head-link ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Bố cục chuyển từ 2 cột sang 1 cột duy nhất */
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* Đưa Right Content (Khu vực phát video) lên đầu tiên trên Mobile */
+  .right-content {
+    order: 1;
+  }
+
+  /* Đưa Left Content (Danh sách video) xuống dưới video đang phát */
+  .left-content {
+    order: 2;
+  }
+
+  .details-top {
+    flex-direction: column;
+  }
+
+  .details-top h2 {
+    font-size: 1.15rem;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
