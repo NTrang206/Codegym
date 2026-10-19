@@ -1,0 +1,223 @@
+/* ==========================================================================
+   BOOK LANDING PAGE - CUSTOM STYLES
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #0f172a;
+  --accent-gold: #f59e0b;
+  --accent-gold-dark: #d97706;
+  --bg-light: #f8fafc;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+/* 1. Header / Navbar */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: #cbd5e1;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffffff;
+}
+
+/* 2. Hero & Book Overview */
+.hero-section {
+  background: radial-gradient(circle at 80% 20%, #1e3a8a 0%, #0f172a 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.05), transparent);
+}
+
+/* 3D Book Mockup Effect */
+.book-wrapper {
+  perspective: 1200px;
+  display: inline-block;
+}
+
+.book-cover-3d {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px 16px 16px 8px;
+  transform: rotateY(-18deg) rotateX(6deg);
+  box-shadow: -15px 20px 35px rgba(0, 0, 0, 0.5), 
+              -2px 0 10px rgba(0, 0, 0, 0.3),
+              inset 4px 0 8px rgba(255, 255, 255, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-left: 6px solid #d4af37;
+}
+
+.book-wrapper:hover .book-cover-3d {
+  transform: rotateY(-6deg) rotateX(2deg) translateY(-8px);
+  box-shadow: -20px 30px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* 3. Section Titles */
+.section-title {
+  font-weight: 800;
+  color: var(--secondary-color);
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* 4. Features & Cards */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.1);
+  border-color: #93c5fd;
+}
+
+.feature-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* 5. Author Section */
+.author-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border: 6px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.author-badge {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* 6. Pricing Section */
+.pricing-card {
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+  background: #ffffff;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+}
+
+.pricing-card.featured {
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+  position: relative;
+}
+
+.featured-ribbon {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.3rem 1.2rem;
+  border-radius: 20px;
+}
+
+/* 7. Download Section */
+.download-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 24px;
+}
+
+/* 8. Reader's Say / Testimonials */
+.review-card {
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: #cbd5e1;
+}
+
+.avatar-sm {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 9. Accordion Styling */
+.accordion-button:not(.collapsed) {
+  background-color: #eff6ff;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+  .book-cover-3d {
+    transform: none;
+    max-width: 260px;
+    margin-top: 2rem;
+  }
+  .book-wrapper:hover .book-cover-3d {
+    transform: translateY(-6px);
+  }
+}
