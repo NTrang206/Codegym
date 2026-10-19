@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang web dài</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-top">
+
+  <div class="container">
+    <h1>Một Bài Viết Rất Dài</h1>
+    <p>Chào mừng bạn đến với bài thực hành về thuộc tính position: fixed trong CSS. Để kiểm tra tính năng nút cuộn lên đầu trang, trang web này cần có độ dài đủ lớn để kích hoạt thanh cuộn của trình duyệt.</p>
+    
+    <h2>1. Giới thiệu về Position trong CSS</h2>
+    <p>Thuộc tính position trong CSS đóng vai trò định vị phần tử trên trang web. Các giá trị thông dụng bao gồm static, relative, absolute, fixed và sticky. Mỗi giá trị mang một đặc tính riêng biệt trong luồng hiển thị (document flow).</p>
+    <p>Khi sử dụng position: fixed, phần tử được tách khỏi luồng tài liệu thông thường và được định vị tương đối so với khung nhìn (viewport) của trình duyệt. Điều này có nghĩa là khi người dùng cuộn trang, phần tử vẫn giữ nguyên vị trí cố định trên màn hình.</p>
+    
+    <h2>2. Ứng dụng thực tế của Position Fixed</h2>
+    <p>Các thành phần giao diện phổ biến sử dụng position: fixed bao gồm:</p>
+    <ul>
+      <li>Thanh điều hướng cố định trên cùng (Sticky Header/Fixed Navbar).</li>
+      <li>Nút hỗ trợ trực tuyến (Live Chat Widget) ở góc dưới màn hình.</li>
+      <li>Nút cuộn lên đầu trang (Back to Top Button).</li>
+      <li>Thanh thông báo khẩn cấp hoặc banner quảng cáo cố định.</li>
+    </ul>
+    <p>Thuộc tính z-index thường được kết hợp với position: fixed để đảm bảo phần tử luôn nổi trên tất cả các lớp nội dung khác của trang.</p>
+
+    <h2>3. Trải nghiệm người dùng với Scroll Behavior</h2>
+    <p>Trong quá khứ, khi người dùng nhấp vào một liên kết neo nội bộ (anchor link với #id), trình duyệt sẽ nhảy lập tức đến vị trí đó mà không có bất kỳ hiệu ứng chuyển tiếp nào. Điều này có thể khiến người dùng cảm thấy bị giật mình hoặc mất phương hướng.</p>
+    <p>Với thuộc tính scroll-behavior: smooth trong CSS, toàn bộ quá trình cuộn trang qua liên kết neo sẽ diễn ra êm ái, mượt mà và tăng cường đáng kể trải nghiệm người dùng hiện đại.</p>
+
+    <h2>4. Nội dung bổ sung để cuộn trang</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.</p>
+    <p>Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi.</p>
+    <p>Donec pellentesque suscipit mauris. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+    <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.</p>
+  </div>
+
+  <a href="#page-top" class="back-to-top-btn" title="Cuộn lên đầu trang">↑</a>
+
+</body>
+</html>
