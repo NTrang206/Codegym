@@ -1,0 +1,631 @@
+@charset "utf-8";
+/* ==========================================================================
+   BÀI THỰC HÀNH: PHỐI MÀU ĐƠN TÔNG (MONOCHROMATIC COLOR SCHEME)
+   Màu chủ đạo (Bậc 1): #00ADEE (Xanh logo CodeGym / Imaginary Store)
+   
+   BẢNG MÀU ĐƠN TÔNG XANH DƯƠNG:
+   - Bậc 1 : #00ADEE  (Màu chính chủ đạo - banner, title, on-sale, preview badge)
+   - Bậc 2 : #00B2EF  (Nhấn mạnh)
+   - Bậc 3 : #00B9F0  
+   - Bậc 4 : #00BFF2  (Màu nền trang body theo Bước 2)
+   - Bậc 5 : #32CBF4  
+   - Bậc 6 : #5FD7F5  
+   - Bậc 7 : #8DD7F7  (Màu nền phần preview thay cho màu hồng theo Bước 4)
+   - Bậc 8 : #ACE2F8  (Đường viền/phân cách)
+   - Bậc 9 : #C6E9FA  (Màu nền footer theo Bước 5)
+   - Bậc 10: #E4F4FC  (Nền sáng tối đa)
+   ========================================================================== */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.clear {
+	clear: both;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.hide {
+	display: none;
+}
+
+/* Bước 1 & 3: Bôi đen văn bản theo tông màu bậc 1 */
+::selection {
+	background: #00ADEE;
+	color: #fff;
+}
+::-moz-selection {
+	background: #00ADEE;
+	color: #fff;
+}
+
+.c2 {
+	width: 16.6666%;
+}
+.c3 {
+	width: 25%;
+}
+.c4 {
+	width: 33.3333%;
+}
+.c5 {
+	width: 41.6666%;
+}
+.c9 {
+	width: 75%;
+}
+.c12 {
+	width: 100%;
+}
+.c2, .c3, .c4, .c5, .c9, .c12 {
+	padding: 0 15px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.fix-size {
+	max-width: 1000px;
+	margin: auto;
+}
+
+/* Core fonts */
+@font-face {
+	font-family: font1;
+	src: url(fonts/pacifico.woff);
+}
+@font-face {
+	font-family: font2;
+	src: url(fonts/ptsans.woff);
+}
+
+/* --------------------------------------------------------------------------
+   BƯỚC 2 & 6: THAY ĐỔI MÀU NỀN VÀ MÀU CHỮ TOÀN BỘ TRANG
+   - Nền chuyển thành màu bậc 4: #00BFF2
+   - Toàn bộ màu chữ đặt màu đen (#000)
+   -------------------------------------------------------------------------- */
+body {
+	font-family: font2;
+	font-size: 15.5px;
+	color: #000;              /* Bước 6: Giữ nguyên màu chữ toàn bộ trang là màu đen */
+	background: #00BFF2;       /* Bước 2: Màu nền chuyển thành màu bậc 4 (#00BFF2) */
+	line-height: 1.62em;
+}
+
+/* Header */
+header {
+	color: #eee;
+	background: #222;
+	line-height: 32px;
+}
+header a {
+	color: #808080;
+	font-size: 14px;
+}
+header a:hover {
+	color: #00ADEE;
+}
+
+/* --------------------------------------------------------------------------
+   BƯỚC 5: ĐỔI MÀU NỀN PHẦN FOOTER
+   - Màu nền chuyển thành màu bậc 9: #C6E9FA (hoặc giữ xám tối)
+   -------------------------------------------------------------------------- */
+footer {
+	color: #000;
+	background: #C6E9FA;       /* Bước 5: Màu bậc 9 (#C6E9FA) tạo độ sáng cho trang */
+	line-height: 48px;
+	border-top: 1px solid #ACE2F8;
+	font-weight: 500;
+}
+
+/* Navigation */
+body > nav ul {
+	margin-top: 45px;
+}
+body > nav ul li {
+	width: 31%;
+	display: inline-block;
+	text-align: center;
+}
+body > nav ul li a {
+	color: #004b68;           /* Màu xanh đậm dễ đọc trên nền bậc 4 */
+	font-weight: bold;
+	display: inline-block;
+	padding: 5px 0;
+	transition: color 0.2s ease;
+}
+body > nav ul li a:hover {
+	color: #002d3e;
+}
+body > nav ul li:nth-child(2) a {
+	border-bottom: solid 2px #004b68;
+}
+body > nav ul:hover li a {
+	border-bottom: none;
+}
+body > nav ul li:hover a {
+	border-bottom: solid 2px #004b68;
+}
+body > nav a.c2 {
+	display: block;
+}
+body > nav a img {
+	display: block;
+	margin: 20px 0;
+}
+body > nav form {
+	margin-top: 45px;
+}
+input, button {
+	width: 100%;
+	height: 30px;
+	color: #a9a9a9;
+	background: none;
+	border: none;
+	outline: none;
+}
+body > nav input[type=search] {
+	width: 80%;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+	text-indent: 10px;
+	border-radius: 4px 0 0 4px;
+	color: #000;
+}
+body > nav input[type=search]:focus {
+	background: #fff;
+	box-shadow: inset 0 1px 1px rgba(0, 173, 238, 0.5);
+}
+body > nav input[type=submit] {
+	width: 18%;
+	font-weight: bold;
+	color: #fff;
+	background: #00ADEE;       /* Bậc 1 */
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+body > nav input[type=submit]:hover {
+	background: #008ebf;
+}
+
+/* --------------------------------------------------------------------------
+   BƯỚC 3: THAY ĐỔI MÀU NỀN PHẦN BANNER
+   - Chuyển màu nền đỏ (#c33) theo tông màu bậc 1 (#00ADEE)
+   -------------------------------------------------------------------------- */
+#banner {
+	background: #00ADEE;       /* Bước 3: Màu bậc 1 (#00ADEE) */
+	box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.3), inset 0 -2px rgba(255, 255, 255, 0.6);
+	font-weight: bold;
+	padding: 20px 0;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+h1, h2, h3 {
+	font-family: font1;
+	line-height: normal;
+	padding-bottom: 10px;
+}
+h1 {
+	font-size: 44px;
+	color: #ffffff;
+}
+h2 {
+	font-size: 38px;
+	color: #000000;
+}
+h3 {
+	font-size: 24px;
+	color: #000000;
+}
+#banner aside button {
+	height: 56px;
+	border-radius: 5px;
+	margin-top: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	box-shadow: inset 0 -3px 2px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+	background: #0077a4;       /* Tông đậm của bậc 1 tạo hiệu ứng nổi khối */
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+#banner aside button:hover {
+	background: #00688f;
+	box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1), inset 0 -2px rgba(255, 255, 255, 0.1);
+}
+#banner aside button:active {
+	box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 -2px rgba(255, 255, 255, 0.1);
+	background: #005a7d;
+}
+#banner aside p {
+	text-align: center;
+	font-size: 10px;
+	padding: 5px 0;
+	color: #e4f4fc;
+}
+
+/* --------------------------------------------------------------------------
+   KHU VỰC NỘI DUNG CHÍNH (#main)
+   -------------------------------------------------------------------------- */
+#main {
+	padding-top: 20px;
+	overflow: hidden;
+}
+#main section > .right {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+#main section h3 {
+	font-family: font2;
+	font-size: 24px !important;
+	margin-bottom: 25px;
+	color: #000;
+}
+#main section h3 del {
+	color: #4b6b77;
+}
+#main section > p {
+	text-align: justify;
+	margin-bottom: 25px;
+	color: #000;              /* Màu đen */
+}
+
+/* --------------------------------------------------------------------------
+   BƯỚC 3: PHẦN ON SALE (ĐỔI ĐỎ THÀNH TÔNG BẬC 1 #00ADEE)
+   -------------------------------------------------------------------------- */
+.trans {
+	width: 225px;
+	height: 225px;
+	margin: auto;
+	perspective: 800px;
+	-webkit-perspective: 800px;
+}
+.trans .cover {
+	width: 225px;
+	height: 225px;
+	position: relative;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+}
+.trans .face {
+	background: url(images/disc-cover.png) no-repeat;
+	width: 205px;
+	height: 205px;
+	padding: 10px;
+	border-radius: 5px;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+	position: absolute;
+	overflow: hidden;
+}
+.trans .back {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3), inset 0 225px rgba(255, 255, 255, 0.85);
+	text-align: center;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	padding: 9px;
+	border: solid 1px #ACE2F8;
+}
+.trans:hover .cover {
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+}
+.trans .back b {
+	font-size: 14px;
+	color: #000;
+}
+.trans .back ol {
+	margin-top: 10px;
+}
+.trans .back ol li {
+	list-style: decimal inside;
+	line-height: 28px;
+	text-align: left;
+	color: #000;
+}
+/* Bước 3: Đổi nhãn ON SALE từ đỏ sang tông bậc 1 (#00ADEE) */
+.trans .on-sale {
+	background: #00ADEE;       /* Bậc 1 */
+	color: #fff;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	margin-top: 14px;
+	margin-left: -140px;
+	text-align: center;
+	line-height: 28px;
+	font-weight: bold;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.trans .back button {
+	color: #fff;
+	background: #00ADEE;       /* Bậc 1 */
+	border-radius: 4px;
+	margin-top: 10px;
+	width: 100px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.2s ease;
+}
+.trans .back button:hover {
+	background: #008ebf;
+}
+
+/* --------------------------------------------------------------------------
+   BƯỚC 4: ĐỔI MÀU NỀN HỒNG PHẦN NỘI DUNG PREVIEWS THÀNH BẬC 7 (#8DD7F7)
+   BƯỚC 3: ĐỔI HUY HIỆU PREVIEW TỪ ĐỎ SANG BẬC 1 (#00ADEE)
+   -------------------------------------------------------------------------- */
+#main .preview li {
+	width: 50%;
+}
+/* Bước 4: Nền hồng chuyển thành màu bậc 7 (#8DD7F7), màu chữ giữ màu đen */
+#main .preview li a {
+	display: block;
+	background: #8DD7F7;       /* Bước 4: Màu bậc 7 (#8DD7F7) */
+	border-radius: 6px;
+	margin: 15px;
+	overflow: hidden;
+	color: #000000;           /* Bước 4 & 6: Giữ chữ màu đen rõ ràng trên nền nhạt */
+	position: relative;
+	padding: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#main .preview li a:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 173, 238, 0.25);
+}
+#main .preview li.left a {
+	margin-left: 0;
+}
+#main .preview li.right a {
+	margin-right: 0;
+}
+
+/* Bước 3: Nền nhãn PREVIEW chuyển từ đỏ sang bậc 1 (#00ADEE) */
+#main .preview .title {
+	color: #fff;
+	font-size: 10px;
+	display: block;
+	padding: 0 20px;
+	line-height: 14px;
+	background: #00ADEE;       /* Bước 3: Bậc 1 (#00ADEE) */
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	position: absolute;
+	top: 13px;
+	left: -20px;
+	font-weight: bold;
+}
+
+/* Bước 3: Vòng tròn nút Play chuyển từ đỏ sang bậc 1 (#00ADEE) */
+#main .preview .circle {
+	margin-left: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #00ADEE;       /* Bước 3: Bậc 1 (#00ADEE) */
+	position: relative;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+#main .preview .triangle {
+	color: #fff;
+	font-size: 28px;
+	transform: scaleY(2.5);
+	-webkit-transform: scaleY(2.5);
+	top: 7px;
+	left: 14px;
+	position: absolute;
+}
+#main .preview b {
+	font-family: font1;
+	display: block;
+	line-height: 22px;
+	color: #000;
+}
+#main .preview small {
+	font-size: 11px;
+	display: block;
+	line-height: 20px;
+	color: #1a3c4a;
+}
+
+/* Reviews Blockquote */
+#main blockquote {
+	position: relative;
+	margin-bottom: 35px;
+}
+#main blockquote .quote {
+	font-size: 18px;
+	transform: scale(10, 10);
+	-webkit-transform: scale(10, 10);
+	color: #5FD7F5;           /* Bậc 6 tạo bóng trích dẫn nghệ thuật */
+	position: absolute;
+	left: 20px;
+	top: 65px;
+}
+#main blockquote p {
+	padding-top: 20px;
+	padding-left: 70px;
+	font-size: 23px;
+	font-style: italic;
+	color: #000;              /* Màu đen theo Bước 6 */
+}
+#main blockquote small {
+	display: block;
+	margin-left: 20px;
+	margin-top: 5px;
+	color: #1e3a47;
+}
+
+/* Aside Section */
+#main aside h3 {
+	padding-bottom: 0px;
+	color: #000;
+}
+#main aside p {
+	text-align: center;
+	color: #000;
+}
+#main aside .about {
+	margin-bottom: 15px;
+	padding-bottom: 20px;
+	border-bottom: #0077a4 dashed 1px;
+	text-align: justify;
+	margin-top: 5px;
+}
+#main aside .aside-cover {
+	margin-bottom: 15px;
+}
+
+/* Info Section (Hộp thông tin dưới) */
+#info {
+	padding: 25px 0;
+	background: #ACE2F8;       /* Bậc 8 hài hòa với nền Bậc 4 và Footer Bậc 9 */
+	color: #000;
+	border-top: 2px solid #8DD7F7;
+}
+#info h3 {
+	color: #000;
+}
+#info p {
+	margin-bottom: 15px;
+	text-align: justify;
+	color: #000;
+}
+#info input[type=email] {
+	text-indent: 10px;
+	background: #fff;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	margin-bottom: 15px;
+	border-radius: 4px;
+	color: #000;
+}
+#info input[type=submit] {
+	background: #00ADEE;       /* Bậc 1 */
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+#info input[type=submit]:hover {
+	background: #008ebf;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN CHO THIẾT BỊ DI ĐỘNG
+   -------------------------------------------------------------------------- */
+@media (max-width: 800px) {
+.hide {
+	display: block;
+}
+.show {
+	display: none;
+}
+.c {
+	width: 100%;
+}
+header a.right {
+	float: left;
+}
+header a.hide {
+	float: right;
+}
+header a.hide img {
+	display: block;
+	margin: 6px;
+}
+body > nav a.c2 img {
+	margin: 20px auto;
+}
+#banner {
+	padding-bottom: 10px;
+}
+h1 {
+	font-size: 34px;
+}
+h2 {
+	font-size: 28px;
+}
+h3 {
+	font-size: 18px;
+}
+#main .preview li {
+	width: 100%;
+}
+#main .preview li a {
+	margin: 15px 0;
+}
+#main aside .aside-cover {
+	width: 50%;
+	float: left;
+}
+#main-nav {
+	margin: 50px 0;
+}
+#main-nav ul li a {
+	display: block;
+	line-height: 56px;
+	border-top: #ACE2F8 solid 1px;
+	color: #004b68;
+	padding: 0 10px;
+	transition: all 0.3s ease;
+}
+#main-nav ul li:last-child a {
+	border-bottom: #ACE2F8 solid 1px;
+}
+#main-nav ul li a:hover {
+	background: rgba(141, 215, 247, 0.6); /* Bậc 7 */
+}
+#main-nav .arrow {
+	background: url(images/arrow.png) no-repeat bottom;
+	width: 30px;
+	height: 20px;
+	display: inline-block;
+	transition: all 0.3s ease;
+}
+#main-nav ul li:first-child a:hover .arrow {
+	background: url(images/double-arrow.png) no-repeat bottom;
+}
+#main-nav input {
+	border: #8DD7F7 solid 1px;
+	height: 34px;
+	margin: 10px 0;
+}
+#main-nav input[type=search] {
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	text-indent: 10px;
+	background: #fff;
+	color: #000;
+}
+#main-nav input[type=submit] {
+	color: #fff;
+	background: #00ADEE;
+}
+}
+
+@media (max-width: 500px) {
+header p.c9 {
+	width: 66.6666%;
+}
+header p.c3 {
+	width: 33.3333%;
+}
+}
