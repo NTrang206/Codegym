@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Thực hành] CSS | grid-row Property</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <header class="header">
+      <h1>[Thực hành] CSS Grid | Thuộc tính <code>grid-row</code></h1>
+      <p class="subtitle">Luyện tập thay đổi vị trí và kích thước của Grid Item qua các cú pháp: <code>1 / 3</code>, <code>2 / 4</code> và <code>span 2</code>.</p>
+    </header>
+
+    <!-- KHU VỰC THỬ NGHIỆM TRỰC QUAN (INTERACTIVE DEMO) -->
+    <section class="demo-card interactive-section">
+      <div class="card-header">
+        <h2>1. Khu vực Thử nghiệm Tương tác Trực tiếp</h2>
+        <p>Bấm chọn các nút bên dưới để quan sát ngay sự thay đổi vị trí của <strong>Ô 1</strong> trong lưới 3x3:</p>
+      </div>
+
+      <!-- Nút bấm chuyển đổi giá trị grid-row -->
+      <div class="button-group">
+        <button type="button" class="btn active" id="btn13" onclick="setGridRow('1 / 3', this)">
+          grid-row: 1 / 3 (Hàng 1 &rarr; 3)
+        </button>
+        <button type="button" class="btn" id="btn24" onclick="setGridRow('2 / 4', this)">
+          grid-row: 2 / 4 (Hàng 2 &rarr; 4)
+        </button>
+        <button type="button" class="btn" id="btnSpan2" onclick="setGridRow('span 2', this)">
+          grid-row: span 2 (Chiếm 2 hàng tự động)
+        </button>
+      </div>
+
+      <!-- Thông tin giải thích trạng thái hiện tại -->
+      <div class="info-alert" id="statusInfo">
+        <strong>Đang áp dụng:</strong> <code>grid-row: 1 / 3;</code> &mdash; Ô 1 bắt đầu từ đường kẻ hàng số 1 và kết thúc tại đường kẻ hàng số 3 (chiếm trọn 2 hàng đầu tiên của cột 1).
+      </div>
+
+      <!-- Khung Grid 3 cột x 3 hàng -->
+      <div class="grid-container" id="interactiveGrid">
+        <div class="item item1" id="targetItem">
+          <div class="item-content">
+            <span class="item-title">Ô 1</span>
+            <span class="item-rule" id="itemRuleText">grid-row: 1 / 3;</span>
+          </div>
+        </div>
+        <div class="item">Ô 2</div>
+        <div class="item">Ô 3</div>
+        <div class="item">Ô 4</div>
+        <div class="item">Ô 5</div>
+        <div class="item">Ô 6</div>
+      </div>
+    </section>
+
+    <!-- SO SÁNH TRỰC QUAN 3 TRƯỜNG HỢP (SIDE-BY-SIDE COMPARISON) -->
+    <section class="comparison-section">
+      <h2>2. So sánh 3 Trường hợp Yêu cầu của Đề bài</h2>
+      <div class="grid-comparison">
+        
+        <!-- Trường hợp 1: 1 / 3 -->
+        <div class="demo-card">
+          <div class="badge-tag">Mặc định</div>
+          <h3>Trường hợp 1: <code>grid-row: 1 / 3;</code></h3>
+          <p class="desc">Bắt đầu từ đường kẻ 1, kết thúc tại đường kẻ 3. Ô 1 chiếm 2 hàng đầu tiên.</p>
+          <div class="grid-container grid-fixed">
+            <div class="item item-highlight row-1-3">Ô 1 (1 / 3)</div>
+            <div class="item">Ô 2</div>
+            <div class="item">Ô 3</div>
+            <div class="item">Ô 4</div>
+            <div class="item">Ô 5</div>
+            <div class="item">Ô 6</div>
+          </div>
+        </div>
+
+        <!-- Trường hợp 2: 2 / 4 -->
+        <div class="demo-card">
+          <div class="badge-tag badge-warning">Thay đổi 1</div>
+          <h3>Trường hợp 2: <code>grid-row: 2 / 4;</code></h3>
+          <p class="desc">Bắt đầu từ đường kẻ 2, kết thúc tại đường kẻ 4. Ô 1 tụt xuống chiếm hàng 2 và 3.</p>
+          <div class="grid-container grid-fixed">
+            <div class="item item-highlight row-2-4">Ô 1 (2 / 4)</div>
+            <div class="item">Ô 2</div>
+            <div class="item">Ô 3</div>
+            <div class="item">Ô 4</div>
+            <div class="item">Ô 5</div>
+            <div class="item">Ô 6</div>
+          </div>
+        </div>
+
+        <!-- Trường hợp 3: span 2 -->
+        <div class="demo-card">
+          <div class="badge-tag badge-success">Thay đổi 2</div>
+          <h3>Trường hợp 3: <code>grid-row: span 2;</code></h3>
+          <p class="desc">Bắt đầu từ vị trí tự động của nó và trải rộng qua 2 hàng liên tiếp.</p>
+          <div class="grid-container grid-fixed">
+            <div class="item item-highlight row-span-2">Ô 1 (span 2)</div>
+            <div class="item">Ô 2</div>
+            <div class="item">Ô 3</div>
+            <div class="item">Ô 4</div>
+            <div class="item">Ô 5</div>
+            <div class="item">Ô 6</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BẢNG TỔNG KẾT KIẾN THỨC -->
+    <footer class="footer">
+      <p>&copy; 2026 - Bài thực hành CSS Grid Row | CodeGym Web Development Module</p>
+    </footer>
+  </div>
+
+  <script>
+    function setGridRow(value, btnElement) {
+      const targetItem = document.getElementById('targetItem');
+      const itemRuleText = document.getElementById('itemRuleText');
+      const statusInfo = document.getElementById('statusInfo');
+      const buttons = document.querySelectorAll('.button-group .btn');
+
+      // Cập nhật kiểu cho nút đang chọn
+      buttons.forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      // Áp dụng grid-row vào Ô 1
+      targetItem.style.gridRow = value;
+      itemRuleText.textContent = `grid-row: ${value};`;
+
+      // Cập nhật thông điệp giải thích
+      if (value === '1 / 3') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>grid-row: 1 / 3;</code> &mdash; Bắt đầu tại đường kẻ 1, kết thúc tại đường kẻ 3. Ô 1 nằm ở góc trên bên trái, chiếm trọn 2 hàng (hàng 1 và 2).';
+      } else if (value === '2 / 4') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>grid-row: 2 / 4;</code> &mdash; Bắt đầu tại đường kẻ 2, kết thúc tại đường kẻ 4. Ô 1 tụt xuống hàng 2 và kéo dài qua hàng 3, đẩy các ô khác dịch chuyển theo luồng tự động của Grid.';
+      } else if (value === 'span 2') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>grid-row: span 2;</code> &mdash; Trải rộng qua 2 hàng tính từ vị trí tự động ban đầu của nó (tương đương với <code>grid-row: 1 / span 2;</code>).';
+      }
+    }
+  </script>
+</body>
+</html>
