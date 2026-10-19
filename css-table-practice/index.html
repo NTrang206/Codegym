@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thực hành: Định kiểu Bảng trong CSS (CSS Tables)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1>[Thực hành] Định kiểu Bảng trong CSS</h1>
+      <p class="subtitle">Thực hành toàn diện các thuộc tính: border, border-collapse, width, height, text-align, vertical-align, padding và màu sắc.</p>
+    </header>
+
+    <!-- PHẦN 1: ĐƯỜNG VIỀN & GỘP VIỀN (BORDER & BORDER-COLLAPSE) -->
+    <section class="demo-section">
+      <h2>1. Đường viền và Gộp đường viền (border & border-collapse)</h2>
+      <div class="grid-two-cols">
+        <div class="card">
+          <h3>Bảng viền kép mặc định (separate)</h3>
+          <p class="desc">Chưa gộp đường viền, mỗi ô có border riêng:</p>
+          <table class="table-border-separate">
+            <thead>
+              <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web Frontend</td>
+              </tr>
+              <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web Backend</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Bảng gộp viền (border-collapse: collapse)</h3>
+          <p class="desc">Các đường viền liền kề gộp thành một đường viền duy nhất:</p>
+          <table class="table-border-collapse">
+            <thead>
+              <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web Frontend</td>
+              </tr>
+              <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web Backend</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẦN 2: CHIỀU RỘNG & CHIỀU CAO (WIDTH & HEIGHT) -->
+    <section class="demo-section">
+      <h2>2. Chiều rộng và Chiều cao (width & height)</h2>
+      <div class="card">
+        <p class="desc">Bảng có <code>width: 100%</code> chiếm trọn bề ngang, thẻ <code>th</code> có chiều cao tối thiểu <code>height: 50px</code>:</p>
+        <table class="table-sized">
+          <thead>
+            <tr>
+              <th>Họ tên</th>
+              <th>Tuổi</th>
+              <th>Lớp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nguyễn Văn A</td>
+              <td>20</td>
+              <td>Web Frontend</td>
+            </tr>
+            <tr>
+              <td>Trần Thị B</td>
+              <td>21</td>
+              <td>Web Backend</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PHẦN 3: CĂN CHỈNH NGANG VÀ DỌC (TEXT-ALIGN & VERTICAL-ALIGN) -->
+    <section class="demo-section">
+      <h2>3. Căn chỉnh theo chiều ngang và chiều dọc</h2>
+      <div class="card">
+        <p class="desc">
+          Tiêu đề <code>th</code> được căn lề trái (<code>text-align: left</code>). 
+          Ô <code>td</code> có chiều cao 80px và được căn xuống đáy (<code>vertical-align: bottom</code>):
+        </p>
+        <table class="table-alignment">
+          <thead>
+            <tr>
+              <th>Họ tên</th>
+              <th>Tuổi</th>
+              <th>Lớp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nguyễn Văn A</td>
+              <td>20</td>
+              <td>Web Frontend</td>
+            </tr>
+            <tr>
+              <td>Trần Thị B</td>
+              <td>21</td>
+              <td>Web Backend</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PHẦN 4: KHOẢNG ĐỆM PADDING TRONG BẢNG -->
+    <section class="demo-section">
+      <h2>4. Khoảng đệm (Padding) trong ô bảng</h2>
+      <div class="card">
+        <p class="desc">Sử dụng <code>padding: 15px</code> giúp các ô thoáng đãng, nội dung không bị dính sát vào mép viền:</p>
+        <table class="table-padding">
+          <thead>
+            <tr>
+              <th>Họ tên</th>
+              <th>Tuổi</th>
+              <th>Lớp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nguyễn Văn A</td>
+              <td>20</td>
+              <td>Web Frontend</td>
+            </tr>
+            <tr>
+              <td>Trần Thị B</td>
+              <td>21</td>
+              <td>Web Backend</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PHẦN 5: TỔNG HỢP MÀU SẮC & GIAO DIỆN HOÀN CHỈNH -->
+    <section class="demo-section">
+      <h2>5. Tổng hợp: Màu sắc, Đường viền & Hiệu ứng Hover chuyên nghiệp</h2>
+      <div class="card">
+        <p class="desc">Kết hợp <code>border-collapse</code>, <code>background-color</code>, <code>color</code>, <code>padding</code> và hiệu ứng di chuột (<code>:hover</code>):</p>
+        <table class="table-styled-complete">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Họ và tên</th>
+              <th>Tuổi</th>
+              <th>Khóa học</th>
+              <th>Điểm đánh giá</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nguyễn Văn A</td>
+              <td>20</td>
+              <td>Lập trình Web Frontend</td>
+              <td>9.5</td>
+              <td><span class="badge badge-success">Đạt yêu cầu</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Trần Thị B</td>
+              <td>21</td>
+              <td>Lập trình Web Backend</td>
+              <td>9.0</td>
+              <td><span class="badge badge-success">Đạt yêu cầu</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Lê Hoàng C</td>
+              <td>22</td>
+              <td>Thiết kế UI/UX với Figma</td>
+              <td>8.8</td>
+              <td><span class="badge badge-success">Đạt yêu cầu</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Phạm Minh D</td>
+              <td>19</td>
+              <td>Cơ sở dữ liệu SQL & NoSQL</td>
+              <td>9.2</td>
+              <td><span class="badge badge-success">Đạt yêu cầu</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Hoàng Thu E</td>
+              <td>23</td>
+              <td>DevOps & Cloud Computing</td>
+              <td>9.7</td>
+              <td><span class="badge badge-success">Xuất sắc</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 - Bài thực hành Bảng trong CSS (CodeGym Web Development Module)</p>
+    </footer>
+  </div>
+</body>
+</html>
