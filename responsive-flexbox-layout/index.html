@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bố Cục Responsive Bằng CSS Flexbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-layout">
+
+  <!-- 1. Header: Hiển thị tiêu đề trang & Logo -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">&#128640;</span>
+      <span class="logo-text">TechTrend</span>
+    </div>
+    <div class="header-info">
+      <h1>Cổng Thông Tin Công Nghệ & Lập Trình</h1>
+      <p>Bố cục Responsive hiện đại xây dựng 100% bằng CSS Flexbox</p>
+    </div>
+  </header>
+
+  <!-- 2. Navigation: Menu điều hướng -->
+  <nav class="navigation">
+    <ul class="nav-menu">
+      <li><a href="#" class="active">Trang chủ</a></li>
+      <li><a href="#">Lập trình Web</a></li>
+      <li><a href="#">CSS Flexbox</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">Trí tuệ nhân tạo</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
+  </nav>
+
+  <!-- Vùng chứa giữa: Main Content & Sidebar -->
+  <div class="main-wrapper">
+
+    <!-- 3. Main Content: Khu vực hiển thị nội dung chính -->
+    <main class="main-content">
+      <article class="featured-post">
+        <span class="category-tag">Kiến trúc Web</span>
+        <h2>Làm chủ Bố cục Responsive Đa Thiết Bị với CSS Flexbox</h2>
+        <p class="post-meta">Đăng bởi <strong>Ban Biên Tập</strong> | Cập nhật: 20/10/2026 | 5 phút đọc</p>
+        
+        <p class="post-intro">
+          CSS Flexbox (Flexible Box Layout Module) là một trong những công cụ mạnh mẽ và linh hoạt nhất trong thiết kế giao diện web hiện đại. Nó cho phép các phần tử tự động co giãn, sắp xếp và phân bổ không gian trống một cách tối ưu theo một chiều (hàng ngang hoặc cột dọc).
+        </p>
+
+        <div class="content-box">
+          <h3>Ưu điểm vượt trội của Flexbox trong thiết kế Responsive:</h3>
+          <ul>
+            <li><strong>Dễ dàng căn chỉnh:</strong> Căn giữa phần tử theo cả hai trục ngang và dọc chỉ với vài dòng lệnh (<code>justify-content: center; align-items: center;</code>).</li>
+            <li><strong>Tự động phân bổ kích thước:</strong> Các thuộc tính <code>flex-grow</code>, <code>flex-shrink</code> và <code>flex-basis</code> giúp nội dung tự dãn nở lấp đầy màn hình Desktop lớn hoặc co lại trên điện thoại.</li>
+            <li><strong>Chuyển hướng mượt mà:</strong> Dễ dàng đổi từ hàng ngang (Desktop) sang cột dọc (Mobile) chỉ bằng thuộc tính <code>flex-direction: column;</code> trong Media Query.</li>
+          </ul>
+        </div>
+
+        <p>
+          Trong bài thực hành này, trên màn hình Desktop, khu vực nội dung chính chiếm phần lớn chiều rộng (tỉ lệ <code>flex: 3</code>), đặt cạnh thanh Sidebar (tỉ lệ <code>flex: 1</code>). Khi chuyển sang màn hình thiết bị di động (Mobile), vùng chứa sẽ tự động đảo chiều sang dạng cột dọc, giúp người dùng cuộn xem nội dung tự nhiên và thuận tiện nhất.
+        </p>
+      </article>
+
+      <section class="post-grid">
+        <div class="sub-card">
+          <h4>Flex Direction & Flex Wrap</h4>
+          <p>Điều hướng luồng hiển thị của các Flex Item từ trái sang phải, phải sang trái hoặc từ trên xuống dưới.</p>
+        </div>
+        <div class="sub-card">
+          <h4>Align Items & Justify Content</h4>
+          <p>Phân phối khoảng cách đều đặn xung quanh và giữa các phần tử một cách linh hoạt không cần dùng float.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- 4. Sidebar: Chứa nội dung phụ (tin nổi bật, chuyên mục, liên kết) -->
+    <aside class="sidebar">
+      <div class="widget">
+        <h3 class="widget-title">Chuyên mục nổi bật</h3>
+        <ul class="widget-list">
+          <li><a href="#">HTML5 & Semantic Web <span>(14)</span></a></li>
+          <li><a href="#">CSS3 Flexbox & Grid <span>(28)</span></a></li>
+          <li><a href="#">Responsive Web Design <span>(19)</span></a></li>
+          <li><a href="#">JavaScript ES6+ <span>(35)</span></a></li>
+          <li><a href="#">UI/UX Best Practices <span>(12)</span></a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h3 class="widget-title">Bài viết đọc nhiều</h3>
+        <ul class="widget-links">
+          <li><a href="#">1. Hiểu sâu thuộc tính flex-grow trong 5 phút</a></li>
+          <li><a href="#">2. So sánh Flexbox và CSS Grid khi nào nên dùng?</a></li>
+          <li><a href="#">3. Các mẹo tối ưu tốc độ tải trang cho Mobile</a></li>
+        </ul>
+      </div>
+
+      <div class="widget widget-banner">
+        <h4>Học Lập Trình Frontend</h4>
+        <p>Khoá học từ nền tảng đến chuyên sâu tại CodeGym.</p>
+        <a href="#" class="btn-cta">Khám phá ngay</a>
+      </div>
+    </aside>
+
+  </div><!-- .main-wrapper -->
+
+  <!-- 5. Footer: Hiển thị thông tin cuối trang -->
+  <footer class="footer">
+    <div class="footer-left">
+      <p>&copy; 2026 TechTrend. Tất cả các quyền được bảo lưu.</p>
+      <p class="sub-text">Thiết kế đáp ứng đa thiết bị (Responsive Layout) bằng CSS Flexbox.</p>
+    </div>
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href="#">Chính sách bảo mật</a></li>
+        <li><a href="#">Điều khoản sử dụng</a></li>
+        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
