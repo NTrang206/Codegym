@@ -1,0 +1,236 @@
+/* ==========================================================================
+   BÀI THỰC HÀNH: THUỘC TÍNH CSS flex-grow (FLEXBOX)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.6;
+  padding: 30px 20px;
+}
+
+.main-header {
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto 30px auto;
+}
+
+.main-header h1 {
+  font-size: 28px;
+  color: #0f172a;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.main-header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Thẻ bao bọc mỗi trường hợp demo */
+.demo-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  color: #0284c7;
+}
+
+.badge {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-accent {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.desc {
+  color: #475569;
+  font-size: 14.5px;
+  margin-bottom: 20px;
+}
+
+.desc code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #0284c7;
+  font-family: Consolas, monospace;
+  font-size: 13.5px;
+}
+
+/* ==========================================================================
+   FLEX CONTAINER & CÁC FLEX ITEM
+   ========================================================================== */
+.flex-container {
+  display: flex;                  /* Kích hoạt chế độ Flexbox */
+  width: 100%;
+  border: 2px dashed #94a3b8;    /* Đường viền đứt nét thể hiện vùng chứa */
+  background-color: #f8fafc;
+  padding: 16px;
+  border-radius: 12px;
+  gap: 12px;                      /* Khoảng cách giữa các Flex Item */
+  min-height: 120px;
+}
+
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.item-code {
+  font-size: 12px;
+  font-family: Consolas, monospace;
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   TRƯỜNG HỢP 1: DIV THỨ 2 CÓ flex-grow: 4 (SO VỚI 4 DIV CÒN LẠI flex-grow: 1)
+   -------------------------------------------------------------------------- */
+.case-1 .item-1 {
+  flex-grow: 1;
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.case-1 .item-2.featured {
+  flex-grow: 4;                   /* Div thứ 2 tăng trưởng gấp 4 lần mỗi div còn lại! */
+  background-color: #fef08a;
+  border-color: #eab308;
+  color: #854d0e;
+  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+  transform: scale(1.02);
+}
+
+.case-1 .item-3 {
+  flex-grow: 1;
+  background-color: #e0f2fe;
+  border-color: #7dd3fc;
+  color: #075985;
+}
+
+.case-1 .item-4 {
+  flex-grow: 1;
+  background-color: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.case-1 .item-5 {
+  flex-grow: 1;
+  background-color: #f3e8ff;
+  border-color: #d8b4fe;
+  color: #6b21a8;
+}
+
+/* --------------------------------------------------------------------------
+   TRƯỜNG HỢP 2: DUY NHẤT DIV THỨ 2 DÃN NỞ (flex-grow: 1), CÒN LẠI flex-grow: 0
+   -------------------------------------------------------------------------- */
+.case-2 .item-1,
+.case-2 .item-3,
+.case-2 .item-4,
+.case-2 .item-5 {
+  flex-grow: 0;                   /* Không dãn nở */
+  width: 110px;                   /* Kích thước cơ sở cố định */
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.case-2 .item-2.featured-blue {
+  flex-grow: 1;                   /* Nhận 100% không gian trống còn lại trong hàng! */
+  background-color: #0284c7;
+  border-color: #0369a1;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   LÝ THUYẾT VÀ CÔNG THỨC
+   -------------------------------------------------------------------------- */
+.theory-card h2 {
+  font-size: 18px;
+  color: #0f172a;
+  margin-bottom: 15px;
+}
+
+.theory-content {
+  font-size: 14.5px;
+  color: #334155;
+}
+
+.formula-box {
+  background-color: #f8fafc;
+  border-left: 4px solid #0284c7;
+  padding: 12px 18px;
+  margin: 12px 0 16px 0;
+  border-radius: 0 8px 8px 0;
+  font-family: Consolas, monospace;
+  font-size: 13.5px;
+  color: #0369a1;
+  line-height: 1.8;
+}
+
+/* Footer */
+.main-footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column;       /* Xếp dọc trên mobile nhỏ */
+  }
+}

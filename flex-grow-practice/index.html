@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thực Hành: Thuộc tính flex-grow trong CSS Flexbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <h1>[Thực hành] CSS | Thuộc tính flex-grow</h1>
+    <p>Khám phá khả năng phát triển và dãn nở của Flex Item trong Flex Container</p>
+  </header>
+
+  <main class="content-wrapper">
+
+    <!-- Phần 1: Ví dụ tiêu chuẩn theo đề bài (Div thứ 2 tăng vượt trội so với 4 Div còn lại) -->
+    <section class="demo-card">
+      <div class="card-header">
+        <h2>1. Ví dụ chính: Div thứ 2 tăng trưởng vượt trội</h2>
+        <span class="badge">Đúng chuẩn đề bài CodeGym</span>
+      </div>
+      <p class="desc">
+        Trong vùng chứa gồm 5 div: Div 1, 3, 4, 5 có <code>flex-grow: 1</code>, riêng <strong>Div 2 có <code>flex-grow: 4</code></strong> (chiếm tới 50% tổng không gian dãn nở còn lại).
+      </p>
+
+      <div class="flex-container case-1">
+        <div class="flex-item item-1">
+          <span class="item-title">Div 1</span>
+          <span class="item-code">flex-grow: 1</span>
+        </div>
+        <div class="flex-item item-2 featured">
+          <span class="item-title">Div 2 (Tăng trưởng)</span>
+          <span class="item-code">flex-grow: 4</span>
+        </div>
+        <div class="flex-item item-3">
+          <span class="item-title">Div 3</span>
+          <span class="item-code">flex-grow: 1</span>
+        </div>
+        <div class="flex-item item-4">
+          <span class="item-title">Div 4</span>
+          <span class="item-code">flex-grow: 1</span>
+        </div>
+        <div class="flex-item item-5">
+          <span class="item-title">Div 5</span>
+          <span class="item-code">flex-grow: 1</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần 2: Trường hợp chỉ duy nhất Div 2 có flex-grow (4 div còn lại giữ mặc định flex-grow: 0) -->
+    <section class="demo-card">
+      <div class="card-header">
+        <h2>2. Thử nghiệm: Chỉ duy nhất Div 2 dãn nở (flex-grow: 1)</h2>
+        <span class="badge badge-accent">Trường hợp ứng dụng thực tế</span>
+      </div>
+      <p class="desc">
+        Các Div 1, 3, 4, 5 có kích thước cố định ban đầu (<code>flex-grow: 0</code>). <strong>Div 2 có <code>flex-grow: 1</code></strong> sẽ chiếm <em>toàn bộ 100%</em> khoảng trống còn lại trong vùng chứa.
+      </p>
+
+      <div class="flex-container case-2">
+        <div class="flex-item item-1">
+          <span class="item-title">Div 1</span>
+          <span class="item-code">grow: 0 (100px)</span>
+        </div>
+        <div class="flex-item item-2 featured-blue">
+          <span class="item-title">Div 2 (Chiếm toàn bộ không gian trống)</span>
+          <span class="item-code">flex-grow: 1</span>
+        </div>
+        <div class="flex-item item-3">
+          <span class="item-title">Div 3</span>
+          <span class="item-code">grow: 0 (100px)</span>
+        </div>
+        <div class="flex-item item-4">
+          <span class="item-title">Div 4</span>
+          <span class="item-code">grow: 0 (100px)</span>
+        </div>
+        <div class="flex-item item-5">
+          <span class="item-title">Div 5</span>
+          <span class="item-code">grow: 0 (100px)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần 3: Công thức và nguyên lý tính toán flex-grow -->
+    <section class="demo-card theory-card">
+      <h2>&#128218; Nguyên lý tính toán không gian dãn nở của flex-grow</h2>
+      <div class="theory-content">
+        <p><strong>Cú pháp:</strong> <code>flex-grow: &lt;number&gt; | initial | inherit;</code> (Mặc định: <code>0</code>)</p>
+        <p><strong>Công thức phân chia không gian:</strong></p>
+        <div class="formula-box">
+          <code>Không gian còn lại = Chiều rộng Container - Tổng chiều rộng cơ sở của các Item</code><br>
+          <code>Không gian nhận thêm của Item = Không gian còn lại * (flex-grow của Item / Tổng các flex-grow)</code>
+        </div>
+        <p>
+          Trong Ví dụ 1 ở trên: Tổng các flex-grow = 1 + 4 + 1 + 1 + 1 = <strong>8 phần</strong>.<br>
+          Div 2 nhận <strong>4/8 = 50%</strong> toàn bộ không gian dãn nở còn lại, do đó dãn rộng gấp nhiều lần các Div khác.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <p>&copy; 2026 CodeGym Frontend Practice | Flexbox flex-grow Property</p>
+  </footer>
+
+</body>
+</html>

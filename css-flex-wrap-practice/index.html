@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Thực hành] CSS | flex-wrap property</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <header class="header">
+      <h1>[Thực hành] CSS Flexbox | Thuộc tính <code>flex-wrap</code></h1>
+      <p class="subtitle">Khám phá cách các Flex Item xuống dòng hoặc giữ trên 1 dòng với: <code>nowrap</code>, <code>wrap</code>, <code>wrap-reverse</code> và <code>initial</code>.</p>
+    </header>
+
+    <!-- KHU VỰC THỬ NGHIỆM TƯƠNG TÁC (INTERACTIVE PLAYGROUND) -->
+    <section class="demo-card interactive-section">
+      <div class="card-header">
+        <h2>1. Khu vực Thử nghiệm Tương tác Trực tiếp (Ví dụ tổng hợp)</h2>
+        <p>Container cố định kích thước <code>600px &times; 300px</code>, chứa 6 Item mỗi ô <code>180px</code>:</p>
+      </div>
+
+      <!-- Thanh chọn giá trị flex-wrap -->
+      <div class="button-group">
+        <button type="button" class="btn active" onclick="setFlexWrap('wrap', this)">
+          flex-wrap: wrap
+        </button>
+        <button type="button" class="btn" onclick="setFlexWrap('nowrap', this)">
+          flex-wrap: nowrap (Mặc định)
+        </button>
+        <button type="button" class="btn" onclick="setFlexWrap('wrap-reverse', this)">
+          flex-wrap: wrap-reverse (Đảo trục chéo)
+        </button>
+        <button type="button" class="btn" onclick="setFlexWrap('initial', this)">
+          flex-wrap: initial (Về mặc định)
+        </button>
+      </div>
+
+      <!-- Thông tin giải thích trạng thái -->
+      <div class="info-alert" id="statusInfo">
+        <strong>Đang áp dụng:</strong> <code>flex-wrap: wrap;</code> &mdash; Container rộng 600px không đủ chứa 6 items (mỗi ô 180px + gap 10px). Các Flex Item tự động chuyển xuống dòng tiếp theo theo hướng từ trên xuống dưới.
+      </div>
+
+      <!-- Container chính theo đề bài -->
+      <div class="container-wrapper">
+        <div class="container flex-wrap-demo" id="interactiveContainer">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+          <div class="item">Item 4</div>
+          <div class="item">Item 5</div>
+          <div class="item">Item 6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SO SÁNH TRỰC QUAN 4 TRƯỜNG HỢP (SIDE-BY-SIDE COMPARISON) -->
+    <section class="comparison-section">
+      <h2>2. So sánh Trực quan 4 Giá trị của <code>flex-wrap</code></h2>
+      <div class="grid-comparison">
+        
+        <!-- Trường hợp 1: wrap -->
+        <div class="demo-card">
+          <div class="badge-tag badge-primary">wrap</div>
+          <h3>1. <code>flex-wrap: wrap;</code></h3>
+          <p class="desc">Cho phép bọc xuống dòng khi thiếu không gian. Hướng dòng: Từ trên xuống dưới.</p>
+          <div class="mini-container wrap-box">
+            <div class="mini-item">1</div>
+            <div class="mini-item">2</div>
+            <div class="mini-item">3</div>
+            <div class="mini-item">4</div>
+            <div class="mini-item">5</div>
+            <div class="mini-item">6</div>
+          </div>
+        </div>
+
+        <!-- Trường hợp 2: nowrap -->
+        <div class="demo-card">
+          <div class="badge-tag badge-default">nowrap</div>
+          <h3>2. <code>flex-wrap: nowrap;</code></h3>
+          <p class="desc">Mặc định: Ép tất cả item trên 1 dòng duy nhất, các item tự co lại (shrink) hoặc tràn viền.</p>
+          <div class="mini-container nowrap-box">
+            <div class="mini-item">1</div>
+            <div class="mini-item">2</div>
+            <div class="mini-item">3</div>
+            <div class="mini-item">4</div>
+            <div class="mini-item">5</div>
+            <div class="mini-item">6</div>
+          </div>
+        </div>
+
+        <!-- Trường hợp 3: wrap-reverse -->
+        <div class="demo-card">
+          <div class="badge-tag badge-warning">wrap-reverse</div>
+          <h3>3. <code>flex-wrap: wrap-reverse;</code></h3>
+          <p class="desc">Bọc xuống dòng nhưng đảo ngược trục chéo (Cross Axis). Dòng mới xếp từ dưới lên trên.</p>
+          <div class="mini-container wrap-reverse-box">
+            <div class="mini-item">1</div>
+            <div class="mini-item">2</div>
+            <div class="mini-item">3</div>
+            <div class="mini-item">4</div>
+            <div class="mini-item">5</div>
+            <div class="mini-item">6</div>
+          </div>
+        </div>
+
+        <!-- Trường hợp 4: initial -->
+        <div class="demo-card">
+          <div class="badge-tag badge-info">initial</div>
+          <h3>4. <code>flex-wrap: initial;</code></h3>
+          <p class="desc">Khôi phục giá trị khởi tạo của CSS, tương đương hoàn toàn với <code>nowrap</code>.</p>
+          <div class="mini-container initial-box">
+            <div class="mini-item">1</div>
+            <div class="mini-item">2</div>
+            <div class="mini-item">3</div>
+            <div class="mini-item">4</div>
+            <div class="mini-item">5</div>
+            <div class="mini-item">6</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER BẢN QUYỀN -->
+    <footer class="footer">
+      <p>&copy; 2026 - Bài thực hành CSS Flexbox | CodeGym Web Development Module</p>
+    </footer>
+  </div>
+
+  <script>
+    function setFlexWrap(value, btnElement) {
+      const container = document.getElementById('interactiveContainer');
+      const statusInfo = document.getElementById('statusInfo');
+      const buttons = document.querySelectorAll('.button-group .btn');
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      container.style.flexWrap = value;
+
+      if (value === 'wrap') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>flex-wrap: wrap;</code> &mdash; Các item tự động xuống dòng khi tổng độ rộng vượt quá 600px. Dòng 1 gồm Item 1, 2, 3; Dòng 2 gồm Item 4, 5, 6 theo hướng từ trên xuống dưới.';
+      } else if (value === 'nowrap') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>flex-wrap: nowrap;</code> (Mặc định) &mdash; Không cho phép xuống dòng. Cả 6 item bị ép nằm trên cùng 1 hàng và tự động co nhỏ chiều rộng (flex-shrink) để vừa khung.';
+      } else if (value === 'wrap-reverse') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>flex-wrap: wrap-reverse;</code> &mdash; Đảo ngược chiều của trục chéo (Cross Axis). Dòng chứa Item 1, 2, 3 bị đẩy xuống dưới, dòng Item 4, 5, 6 nằm ở trên.';
+      } else if (value === 'initial') {
+        statusInfo.innerHTML = '<strong>Đang áp dụng:</strong> <code>flex-wrap: initial;</code> &mdash; Đưa giá trị về mặc định của CSS (tương đương <code>nowrap</code>). Tất cả 6 item quay về nằm trên cùng 1 hàng.';
+      }
+    }
+  </script>
+</body>
+</html>
